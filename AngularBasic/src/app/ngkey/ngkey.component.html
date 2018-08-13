@@ -1,0 +1,48 @@
+<h3>*ngIf</h3>
+<div>
+  <button (click)="show =! show">{{show?'hide':'show'}}</button>
+  show={{show}}
+  <br>
+  <div *ngIf="show">Text to show</div>
+</div>
+<br>
+<br>
+<h3>*ngFor</h3>
+<div>{{title}}</div>
+<ul>
+  <li *ngFor="let m of month">
+    {{m}}
+  </li>
+</ul>
+<h3>*ngSwitchCase</h3>
+<ul *ngFor="let p of people" [ngSwitch]="p.age">
+  <li *ngSwitchCase="21" style="color: red">
+    Ten : {{p.name}} <br> Tuoi : {{p.age}}
+  </li>
+  <li *ngSwitchCase="22" style="color: green">
+    Ten : {{p.name}} <br> Tuoi : {{p.age}}
+  </li>
+  <li *ngSwitchCase="23" style="color: orange">
+    Ten : {{p.name}} <br> Tuoi : {{p.age}}
+  </li>
+  <li *ngSwitchCase="24" style="color: violet">
+    Ten : {{p.name}} <br> Tuoi : {{p.age}}
+  </li>
+</ul>
+<h3>ngStyle</h3>
+<ul *ngFor="let p of people">
+  <li [ngStyle]="{'background-color':getColor(p.age)}" [style.color]="getColor(p.age)">
+    Ten : {{p.name}} <br> Tuoi : {{p.age}} <br> getColor({{p.age}})
+  </li>
+</ul>
+<h3>ngClass</h3>
+<ul *ngFor="let p of people">
+  <li [ngClass]="{
+    'maudo':p.age==='21',
+    'maucam':p.age==='22',
+    'mauvang':p.age==='23',
+    'mauxanh':p.age==='24'
+  }">
+    Ten : {{p.name}} <br> Tuoi : {{p.age}}
+  </li>
+</ul>
