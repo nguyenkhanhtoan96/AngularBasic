@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NgkeyComponent } from './ngkey/ngkey.component';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NgkeyComponent
+    NgkeyComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule

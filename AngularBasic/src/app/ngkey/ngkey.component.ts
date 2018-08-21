@@ -57,6 +57,5 @@ export class NgkeyComponent implements OnInit {
         return 'violet';
     }
   }
-  //ngClass
   
 }

@@ -1,0 +1,98 @@
+<div class="container">
+<table class="table table-bordered table-hover">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Khoa</th>
+    <th><button class="btn btn-success" data-toggle="modal" data-target="#themModal">Them</button></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let p of people; let row_no=index">
+    <td>{{p.id}}</td>
+    <td>{{p.name}}</td>
+    <td>{{p.khoa}}</td>
+    <td>
+      <button class="btn btn-primary" (click)="hienThongTin(row_no)" data-toggle="modal" data-target="#xemModal">Xem</button> &nbsp;
+      <button class="btn btn-warning" (click)="hienThongTin(row_no)" data-toggle="modal" data-target="#suaModal">Sua</button> &nbsp;
+      <button class="btn btn-danger" (click)="deleteIndex(row_no)">Xoa</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="xemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Xem</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ID: {{hienID}}
+        <br>
+        Name: {{hienTen}}
+        <br>
+        Khoa: {{hienKhoa}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="suaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sua</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            ID: <input #so1 value="{{hienID}}">
+            <br>
+            Name: <input #ten1 value="{{hienTen}}">
+            <br>
+            Khoa: <input #k1 value="{{hienKhoa}}">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="editInfor(so1.value,ten1.value,k1.value)">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal -->
+<div class="modal fade" id="themModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Them</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            ID: <input #so2>
+            <br>
+            Name: <input #ten2>
+            <br>
+            Khoa: <input #k2>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="themNguoi(so2.value,ten2.value,k2.value)">Them moi</button>
+        </div>
+      </div>
+    </div>
+  </div>
