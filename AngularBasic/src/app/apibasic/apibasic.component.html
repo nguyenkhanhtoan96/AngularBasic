@@ -1,0 +1,23 @@
+<div class="container">
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ten</th>
+            <th>Lop</th>
+            <th>Khoa</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of arraySV, let row_no=index">
+            <td>{{p.id}}</td>
+            <td>{{p.Ten}}</td>
+            <td>{{p.Lop}}</td>
+            <td>{{p.Khoa}}</td>
+            <td>
+            <button type="button" class="btn btn-large btn-block btn-warning">Sua</button>
+            <button type="button" (click)="delete(p.id)" class="btn btn-large btn-block btn-danger">Xoa</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
